@@ -1,0 +1,115 @@
+<ngx-loading [show]="loading"></ngx-loading>
+
+<div class="below-header"></div>
+
+<div class="container-lg py-3">
+  <br>
+  <br>
+  <h3 class="d-inline align-middle">les commandes de cette municipalty</h3>
+  <button class="d-inline  align-end" (click)="onLogout()">Log Out</button>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <table class="table table-stripped">
+          <thead class="thead-light">
+          <th scope="col">Date</th>
+          <th scope="col">Details</th>
+          <th scope="col">Somme</th>
+          <th scope="col">Assigner</th>
+          <th scope="col">Livreur</th>
+          </thead>
+          <tbody *ngFor="let commande of commandes">
+          <tr >
+            <td scope="row">{{commande?.creation_date.toString().substr(0,16)}}</td>
+            <td> <button class="btn btn-danger btn-sm" data-toggle="modal"
+                         attr.data-target="#demo{{commande.id}}">Details</button></td>
+            <td>{{commande?.total}}</td>
+            <td> <button class="btn btn-success btn-sm" data-toggle="modal"
+              attr.data-target="#demo1{{commande.id}}">Assigner</button></td>
+            <td>{{commande?.delivery_man}}</td>
+
+          </tr>
+
+        <!--======  ======= MODEL ===================-->
+
+        <div class="modal fade" id="demo1{{commande.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+          
+           <h5 class="modal-title" id="exampleModalLabel2">{{commande.id}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+          <div class="modal-body" >
+        <form id="{{commande.id}}"  [formGroup]="chooseForm"  (ngSubmit)="onAssign()">
+          <select formControlName="id_commande" class="form-control" id="id_commande">
+            <option value="{{commande.id}}" selected>Affecter cette commande</option>
+          </select>
+          <select formControlName="id_delivery_man" class="form-control" id="id_delivery_man">
+            <option *ngFor="let user of users" value="{{user.public_id}}" >{{user.first_name}}</option>
+          </select>
+          <button class="btn btn-primary btn-block " type="submit">Valider</button>
+          
+        </form>
+          </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+           
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+   <!--==============MODEL ===================-->
+
+
+          <!--======  ======= MODEL ===================-->
+
+          <div class="modal fade" id="demo{{commande.id}}" tabindex="-1" role="dialog"
+               aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel2">Commande details</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <b>A delivrer à : Anoir Chabchoub</b>
+                <b>contact: 58173296</b>
+                <div class="modal-body" *ngFor="let product of commande.content">
+                  <p class="text"> le nom du produit:  {{product.name}}   </p>
+                  <p class="text"> le prix du produit:  {{product.price}}   </p>
+                  <p class="text"> la quantity du produit:  {{product.quantity}}   </p>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <form >
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--==============MODEL ===================-->
+
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+

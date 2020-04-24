@@ -1,0 +1,80 @@
+
+
+  <app-header></app-header>
+
+  <div class="cart"></div>
+  <ngx-loading [show]="loading"></ngx-loading>
+
+
+  <!-- ====================== Carte ========================-->
+  <div id="carte" class=" container-lg py-3">
+
+    <br>
+    <br>
+    <h3 class="d-inline align-middle">Votre cart</h3>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <table class="table table-stripped">
+            <thead class="thead-light" >
+            <th scope="col">Image</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">SousTotale</th>
+            <th scope="col">Supprimer</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let content of cart.content">
+              <td scope="row"><img src="" alt="" width="50" height="45"></td>
+              <td> {{content.name}}</td>
+
+              <td> {{content.price}}</td>
+              <td><input [(ngModel)]="content.quantity" type="number" name="quantity" min="1" max="10"
+                         value="{{content.quantity}}">  </td>
+              <td> {{content.quantity*(parseFloat(content.price))}}</td>
+
+              <td><a  class="btn btn-sm btn-danger my-1" (click)="deleteContentItem(content)"
+              >Supprimer <i class="fas fa-trash-alt"></i></a></td>
+            </tr>
+            </tbody>
+            <!--<thead class="thead-light">
+                <th scope="row"></th>
+                <th></th>
+                <th></th>
+                <th>Tax: </th>
+                <th>3,16 DT</th>
+                <th>Total:</th>
+                <th>50,86 DT</th>
+                <th><a href="/addcommande" class="btn btn-success btn-sm"> Passer la Demande <i class="fas fa-shopping-cart"></i></a></th>
+                <th><a href="" class="btn btn-danger btn-sm"> Vider la carte <i class="fas fa-trash-alt"></i></a></th>
+            </thead>-->
+          </table>
+          <div class="card-footer">
+            <div class="row">
+              <div style="text-align: center;"class="col-md-3 h3 font-weight-bolder">Total: {{cart.total}} DT</div>
+
+              <div style="text-align: center;"class="col-md-3"><a (click)="getTotal()" class="btn btn-sm btn-primary my-1">
+                Get Total<i class="fas "></i></a></div>
+              <div style="text-align: center;"class="col-md-3"><a  class="btn btn-sm btn-success my-1"
+              (click)="checkout()">
+                Passer la Demande <i class="fas fa-shopping-cart"></i></a></div>
+
+
+
+              <div style="text-align: center;"class="col-md-3"><a (click)="clearCart()" class="btn btn-sm btn-danger my-1">
+                Vider la carte <i class="fas fa-trash-alt"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <app-footer></app-footer>
+

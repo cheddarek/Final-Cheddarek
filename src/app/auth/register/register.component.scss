@@ -1,0 +1,22 @@
+.cover{
+  background-image: url('../../../assets/images/background.jpg');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+
+}
+
+#ui{
+  background-color: #333;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+#ui label,h2 {
+  color: #fff;
+
+
+}

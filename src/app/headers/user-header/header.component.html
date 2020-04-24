@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top py-3" id="main-nav">
+  <div class="container">
+    <a href="#home" class="navbar-brand">
+      <img src="../../../assets/images/logo.jpg" width="60" height="50" alt="">
+      <h3 class="d-inline align-middle">CheDarek</h3>
+    </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">Produits <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart"> Carte <!--({{ session['Shoppingcart']|length }})--> </a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/commandes"> Commandes </a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/team"> OurTeam </a>
+        </li>
+             <!--{% if current_user.is_authenticated %}-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="logout" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">{{profile?.first_name}} {{profile?.last_name}} </a>
+          <div class="dropdown-menu" aria-labelledby="logout">
+            <a class="dropdown-item text-danger" (click)="onLogout()" > Logout</a>
+          </div>
+        </li>
+        <!--{% endif %}-->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

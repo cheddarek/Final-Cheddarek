@@ -1,0 +1,28 @@
+
+#team img {
+  margin-top: -50px; }
+#team .card:hover {
+  background: #3292a6;
+  color: #fff; }
+#team .fab {
+  color: #fff; }
+
+@media (max-width: 768px) {
+  #bienvenue {
+    min-height: 500px; }
+  #bienvenue h1 {
+    font-size: 4rem; }
+
+  .mb-resp {
+    margin-bottom: 1rem; }
+}
+.info-header {
+  width: 50%;
+  margin: auto;
+  border-bottom: 1px #ddd solid;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}

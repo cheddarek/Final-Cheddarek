@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" >
+    <img src="../../../assets/images/logo.jpg"  width="50" height="40" alt=""> Admin</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/products">Produits <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/marques">Marques</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/categories">Categories</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Adding Space
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/products/add">Ajouter Produit</a>
+          <a class="dropdown-item" routerLink="/marques/add">Ajouter Marque </a>
+          <a class="dropdown-item" routerLink="/categories/add">Ajouter Categorie</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"  (click)="onLogout()">logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+

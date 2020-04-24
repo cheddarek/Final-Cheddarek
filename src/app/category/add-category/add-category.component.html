@@ -1,0 +1,39 @@
+<app-admin-header></app-admin-header>
+<ngx-loading [show]="loading"></ngx-loading>
+<div class="below-header"></div>
+
+
+
+
+<div class="container-fluid"  >
+
+  <div class="row">
+
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+
+      <div id="ui" style="background-color: #333;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            opacity: 0.8; font-family: 'Amiri', serif;">
+        <h2 class="text-center text-white">Ajouter une category</h2>
+        <br>
+        <form class="form-group" [formGroup]="categoryForm" (ngSubmit)="onAddCategory()">
+          <label class="text-white">  Nom de la category  </label>
+          <input type="text" name="Nom" id="name" formControlName="name" class="form-control" placeholder="Saisir le nom de la category ">
+
+
+          <br>
+          <button type="submit" name="Ajouter" class="btn btn-primary"
+                  [disabled]="categoryForm.invalid"><i class="fas fa-plus"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+
+
+  </div>
+</div>
+<br>
+

@@ -1,0 +1,72 @@
+
+<ngx-loading [show]="loading"></ngx-loading>
+
+<div class="cover">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+
+          <div id="ui">
+            <h2 class="text-center">Formulaire d'inscription</h2>
+            <form class="form-group text-center" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <label>  Nom </label>
+                  <input type="text"
+                         name="Nom"
+                         formControlName="first_name"
+                         class="form-control"
+                         id="nom"
+                         placeholder="Saisir votre nom">
+                </div>
+
+                <div class="col-lg-6">
+                  <label> Prénom </label>
+                  <input type="text"id="prenom" name="Prénom" formControlName="last_name"class="form-control" placeholder="Saisir votre prénom">
+                </div>
+
+              </div>
+
+              <br>
+              <label >Adresse email</label>
+              <input type="email"formControlName="email" class="form-control"  id="email" aria-describedby="emailHelp" placeholder="Saisir votre adresse email">
+              <br>
+
+              <label >Contact téléphonique</label>
+              <input type="number" id="contact"formControlName="contact" class="form-control" placeholder="Saisir votre numéro de téléphone">
+
+              <label> Mot de passe </label>
+              <input type="password"  formControlName="password"id="password" class="form-control" placeholder="Saisir un mot de passe">
+
+
+              <br>
+              <label > Choisir votre municipalité : </label>
+
+              <select formControlName="municipality_id" class="form-control" id="municipality_id">
+                <option *ngFor="let municipality of municipalities" value="{{municipality.id}}"
+                >{{municipality.name}}</option>
+
+              </select>
+
+           <!--   <label >Adresse</label>
+              <input type="text" formControlName="adresse"id="adresse" class="form-control" placeholder="Saisir votre adresse">
+-->
+
+              <br>
+              <button class="btn btn-primary btn-block "type="submit"
+                      [disabled]="registerForm.invalid">Valider</button>
+              <a href="/login" >Vous avez un compte ? Connectez d'ici</a>
+
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-3"></div>
+
+
+      </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,53 @@
+<ngx-loading [show]="loading"></ngx-loading>
+
+
+
+<div class="container" >
+  <div class="row">
+<!--
+     boucle for
+-->
+
+
+    <div class="col-md-3 mt-4" *ngFor="let product of products">
+      <div class="card">
+        <img src="{{product.image}}" class="card-img-top" alt="delice" height="200" width="200">
+        <div class="card-body">
+                    <h5 class="text-center">{{product?.name}}</h5>
+          <p class="text-center"> {{product?.description}}DT</p>
+
+          <p class="text-center">Prix: {{product?.price}}DT</p>
+        </div>
+        <div class="card-footer">
+          <a  class="float-left btn btn-sm btn-primary">Details</a>
+          <!--
+                    add to cart
+          -->
+          <form>
+            <button type="submit" class="btn btn-sm btn-warning float-right" (click)="add_to_cart(product)">
+              <i class="fas fa-shopping-cart" >Add To cart </i>
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="row my-5">
+    <div class="col text-center">
+      <a class="btn btn-sm btn-outline-primary"*ngIf="pagination_details?.has_prev"
+         (click)="onGetPayload(selector,curentPage-1)">{{curentPage-1}}</a>
+
+      <a  class="btn btn-sm btn-primary">{{pagination_details?.page}}</a>
+
+      <a class="btn btn-sm btn-outline-primary"*ngIf="pagination_details?.has_next"
+      (click)="onGetPayload(selector,curentPage+1)">{{curentPage+1}}</a>
+    </div>
+  </div>
+</div>
+
+
+
